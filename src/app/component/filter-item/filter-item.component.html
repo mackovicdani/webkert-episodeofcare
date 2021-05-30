@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="eoc.patient" matInput placeholder="name">
+    </mat-form-field>
+    <section class="example-section">
+        <mat-checkbox value="planned" class="example-margin" (change)="eventCheck($event)">Planned</mat-checkbox>
+        <mat-checkbox value="waitlist" class="example-margin" (change)="eventCheck($event)">Waitlist</mat-checkbox>
+        <mat-checkbox value="active" class="example-margin" (change)="eventCheck($event)">Active</mat-checkbox>
+        <mat-checkbox value="onhold" class="example-margin" (change)="eventCheck($event)">Onhold</mat-checkbox>
+        <mat-checkbox value="finished" class="example-margin" (change)="eventCheck($event)">Finished</mat-checkbox>
+        <mat-checkbox value="cancelled" class="example-margin" (change)="eventCheck($event)">Cancelled</mat-checkbox>
+        <mat-checkbox value="entered-in-error" class="example-margin" (change)="eventCheck($event)">Entered in error</mat-checkbox>
+      </section>
+    <button class="btn" mat-raised-button (click)="onFilter(eoc)" color="warn">Filer</button>
+</mat-card>

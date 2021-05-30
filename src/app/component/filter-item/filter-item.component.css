@@ -1,0 +1,11 @@
+.mat-form-field {
+    display:block;
+}
+.btn{
+    margin-left: 10px;
+}
+
+.example-margin {
+    margin: 0 12px;
+    display: block;
+  }

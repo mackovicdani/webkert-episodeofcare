@@ -1,0 +1,135 @@
+<mat-card>
+    <mat-card-title>
+        Add
+    </mat-card-title>
+    <form [formGroup]="form" fxLayout="column">
+        <mat-form-field>
+            <mat-label>Patient</mat-label>
+            <input matInput formControlName="patient">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <select matNativeControl formControlName="status">
+              <option value="planned">planned</option>
+              <option value="waitlist">waitlist</option>
+              <option value="active">active</option>
+              <option value="onhold">onhold</option>
+              <option value="finished">finished</option>
+              <option value="cancelled">cancelled</option>
+              <option value="entered-in-error">entered-in-error</option>
+            </select>
+        </mat-form-field>
+        <mat-card class="add">
+            <div formArrayName="statusHistory">
+                <div *ngFor="let user of statusForm.controls; let i = index" [formGroupName]="i" flaxLayout="row" fxLayoutAlign="space-between center">
+                    <mat-card class="item">
+                        <mat-form-field>
+                            <mat-label>Status</mat-label>
+                            <select matNativeControl formControlName="status">
+                              <option value="planned">planned</option>
+                              <option value="waitlist">waitlist</option>
+                              <option value="active">active</option>
+                              <option value="onhold">onhold</option>
+                              <option value="finished">finished</option>
+                              <option value="cancelled">cancelled</option>
+                              <option value="entered-in-error">entered-in-error</option>
+                            </select>
+                        </mat-form-field>
+                        <div formGroupName="period">
+                            <mat-form-field>
+                                <mat-label>Start</mat-label>
+                                <input type="date" matInput formControlName="start">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>End</mat-label>
+                                <input type="date" matInput formControlName="end">
+                            </mat-form-field>
+                        </div>
+                        <button mat-raised-button (click)="deleteStatus(i)" color="warn">Del</button>
+                    </mat-card>
+                </div>
+                <button mat-raised-button (click)="addStatus()">Add Status</button>
+            </div>
+        </mat-card>
+        <mat-card class="add">
+            <div formArrayName="diagnosis">
+                <div *ngFor="let user of diagnosisForm.controls; let i = index" [formGroupName]="i" flaxLayout="row" fxLayoutAlign="space-between center">
+                    <mat-card class="item">
+                        <mat-form-field>
+                            <mat-label>condition</mat-label>
+                            <input matInput formControlName="condition">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>rank</mat-label>
+                            <input matInput formControlName="rank">
+                        </mat-form-field>
+                        <button mat-raised-button (click)="deleteDiagnosis(i)" color="warn">Del</button>
+                    </mat-card>
+                </div>
+                <button mat-raised-button (click)="addDiagnosis()">Add Diagnosis</button>
+            </div>
+        </mat-card>
+        <div formGroupName="period">
+            <mat-form-field>
+                <mat-label>Start</mat-label>
+                <input type="date" matInput formControlName="start">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>End</mat-label>
+                <input type="date" matInput formControlName="end">
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <mat-label>managingOrganization</mat-label>
+            <input matInput formControlName="managingOrganization">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>careManager</mat-label>
+            <input matInput formControlName="careManager">
+        </mat-form-field>
+        <mat-card class="add">
+            <div formArrayName="referralRequest">
+                <div *ngFor="let user of referralForm.controls; let i = index" [formGroupName]="i" flaxLayout="row" fxLayoutAlign="space-between center">
+                    <mat-card class="item">
+                        <mat-form-field>
+                            <mat-label>referralRequest</mat-label>
+                            <input matInput formControlName="display">
+                        </mat-form-field>
+                        <button mat-raised-button (click)="deleteReferral(i)" color="warn">Del</button>
+                    </mat-card>
+                </div>
+                <button mat-raised-button (click)="addReferral()">Add Referral</button>
+            </div>
+        </mat-card>
+        <mat-card class="add">
+            <div formArrayName="team">
+                <div *ngFor="let user of teamForm.controls; let i = index" [formGroupName]="i" flaxLayout="row" fxLayoutAlign="space-between center">
+                    <mat-card class="item">
+                        <mat-form-field>
+                            <mat-label>Taam</mat-label>
+                            <input matInput formControlName="display">
+                        </mat-form-field>
+                        <button mat-raised-button (click)="deleteTeam(i)" color="warn">Del</button>
+                    </mat-card>
+                </div>
+                <button mat-raised-button (click)="addTeam()">Add Team</button>
+            </div>
+        </mat-card>
+        <mat-card class="add">
+            <div formArrayName="account">
+                <div *ngFor="let user of accountForm.controls; let i = index" [formGroupName]="i" flaxLayout="row" fxLayoutAlign="space-between center">
+                    <mat-card class="item">
+                        <mat-form-field>
+                            <mat-label>referralRequest</mat-label>
+                            <input matInput formControlName="display">
+                        </mat-form-field>
+                        <button mat-raised-button (click)="deleteAccount(i)" color="warn">Del</button>
+                    </mat-card>
+                </div>
+                <button mat-raised-button (click)="addAccount()">Add Account</button>
+            </div>
+        </mat-card>
+        <button type="button" mat-raised-button sub (click)="onSubmit()" color="primary">Add</button>
+        <button type="button" mat-raised-button (click)="goBack()">Back</button>
+    </form>
+</mat-card>

@@ -1,0 +1,26 @@
+.mat-card{
+    background-color: #37464f;
+    max-width: 500px;
+    margin: 10px auto;
+}
+
+.mat-card-title{
+    margin-bottom: 10px;
+}
+
+.mat-form-field {
+    display:block;
+}
+
+.mat-raised-button{
+    margin-right: 10px;
+}
+
+.item{
+    background-color: #62727b;
+    color: black;
+}
+
+.add{
+    background-color: #003300;
+}

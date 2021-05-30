@@ -1,0 +1,14 @@
+.mat-card{
+    background-color: #37464f;
+    max-width: 500px;
+    margin: 30px auto;
+    min-height: auto;
+    overflow: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.mat-card-title{
+    margin-bottom: 20px;
+    color: white;
+}
